@@ -8,3 +8,46 @@
 //
 //
 // Your code here
+class Cookies{
+	constructor(waktu_mulai, waktu_matang){
+		this.waktu_mulai = 0;
+		this.waktu_matang = waktu_matang;
+		this.status = "mentah";
+	}
+
+cook (){
+	this.waktu_mulai++
+		if(this.waktu_mulai < 8){
+			return this.status;
+		}
+		if(this.waktu_mulai > this.waktu_matang ){
+			this.status = "Hangus";
+		}
+		if(this.waktu_mulai === this.waktu_matang ){
+			this.status = "Matang";
+		}
+		if(this.waktu_mulai < this.waktu_matang){
+			this.status = "setengah mateng";
+		}
+	}
+}
+
+class KueKacang extends Cookies{
+	constructor(waktu_mulai, waktu_matang){
+		super(waktu_mulai)
+		this.waktu_matang = 10
+	}
+}
+class KueKeju extends Cookies{
+	constructor(waktu_mulai, waktu_matang){
+		super(waktu_mulai)
+		this.waktu_matang = 10
+
+	}
+}
+var kue = new KueKacang()
+
+for (var i = 0; i < 12; i++) {
+	kue.cook()
+	console.log(kue)
+}
