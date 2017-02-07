@@ -11,8 +11,8 @@
 "use strict"
 class Cookies {
   constructor(setTime) {
-    this.timeCook   = setTime
-    this.timeMature = 0
+    this.timeCook   = 0
+    this.cooked     = setTime
     this.status     = "Mentah"
   }
 
@@ -20,46 +20,39 @@ class Cookies {
     this.timeCook++
     if (this.timeCook <= 5) {return this.status }
     if (this.timeCook <= 10) {return this.status = "Hampir matang!"}
-    if (this.timeCook == this.timeMature) {return this.status = "Matang!"}
-    if (this.timeCook > this.timeMature) {return this.status = "Gosong!"}
+    if (this.timeCook == this.cooked) {return this.status = "Matang!"}
+    if (this.timeCook > this.cooked) {return this.status = "Gosong!"}
   }
+
 }
 
 class PeanutCake extends Cookies {
-  constructor(setTime, timeMature) {
+  constructor(setTime) {
     super(setTime)
-    this.timeMature = 13
+    this.cooked = 13
   }
 }
 
 class ChocolateCake extends Cookies {
-  constructor(setTime, timeMature) {
+  constructor(setTime) {
     super(setTime)
-    this.timeMature = 12
+    this.cooked = 12
   }
 }
 
-let cookiesResult = new PeanutCake(3)
+let cookiesResult = new PeanutCake()
     cookiesResult.cookCondition()
+let cookiesResult2 = new ChocolateCake()
+    cookiesResult2.cookCondition()
 
-console.log(cookiesResult);
-cookiesResult.cookCondition()
-console.log(cookiesResult);
-cookiesResult.cookCondition()
-console.log(cookiesResult);
-cookiesResult.cookCondition()
-console.log(cookiesResult);
-cookiesResult.cookCondition()
-console.log(cookiesResult);
-cookiesResult.cookCondition()
-console.log(cookiesResult);
-cookiesResult.cookCondition()
-console.log(cookiesResult);
-cookiesResult.cookCondition()
-console.log(cookiesResult);
-cookiesResult.cookCondition()
-console.log(cookiesResult);
-cookiesResult.cookCondition()
-console.log(cookiesResult);
-cookiesResult.cookCondition()
-console.log(cookiesResult);
+for (var i = 0; i < 15; i++) {
+  cookiesResult.cookCondition()
+  console.log(cookiesResult);
+}
+
+console.log('===================================================================');
+console.log('===================================================================');
+for (var i = 0; i < 15; i++) {
+  cookiesResult2.cookCondition()
+  console.log(cookiesResult2);
+}
