@@ -8,3 +8,12 @@
 //
 //
 // Your code here
+"use strict"
+class Cookies {
+  constructor(setTime) {
+    this.timeCook   = setTime
+    this.timeMature = 0
+    this.status     = "Mentah"
+  }
+  
+}
